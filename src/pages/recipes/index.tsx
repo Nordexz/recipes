@@ -174,7 +174,7 @@ export default function RecipesPage() {
               <TableRow key={id}>
                 <TableCell className="font-medium">{id}</TableCell>
                 <TableCell>
-                  <Link href={`/recipe/${id}`}>
+                  <Link href={`/recipe/${id}`} className='hover:text-blue-600'>
                     {name}
                   </Link>
                 </TableCell>

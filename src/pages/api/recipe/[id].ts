@@ -55,4 +55,20 @@ export default async function singleRecipe(
 
 		res.send(recipe)
 	}
+
+	if (req.method === 'GET') {
+		let { id } = req.query;
+
+		if (id && typeof id !== 'string') {
+			id = id[0]
+		}
+
+		const recipe = await prisma.recipe.findUnique({
+			where: {
+				id
+			}
+		})
+
+		res.send(recipe)
+	}
 }

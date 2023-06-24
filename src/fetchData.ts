@@ -51,3 +51,14 @@ export const patchRecipe = async ({ id, name, description, ingridients }: recipe
 		throw new Error('Cannot update recipe')
 	}
 };
+
+export const getOneById = async (id: string) => {
+	try {
+		const data = await fetch(`http://localhost:3000/api/recipe/${id}`)
+		const recipe = (await data.json()) as Recipe;
+
+		return recipe;
+	} catch (e) {
+		throw new Error('Cant get recipe')
+	}
+}
